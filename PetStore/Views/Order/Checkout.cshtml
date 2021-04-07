@@ -1,0 +1,61 @@
+﻿@model Order
+
+@{ 
+    var bonus = TempData["bonus"] != null ? (bool)TempData["bonus"] : false;
+}
+<div class="card mt-2">
+    <div class="card-body">
+        <h3 class="card-title">Оформить заказ</h3>
+        @if (bonus)
+        {
+            <h4 style="color: darkred"> Ура у вас скидка -10%, как для нашего постоянного клиента !</h4>
+        }
+        <p class="card-text">Пожалуйста, введите информацию о заказе.</p>
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+</div>
+
+<form asp-action="Checkout" method="post">
+    <input type="hidden" asp-for="Date" value="@DateTime.Now" class="form-control" />
+    <div class="card mt-2">
+        <div class="card-body">
+            <h3 class="card-title">Покупка</h3>
+            <div class="form-group">
+                <label>Имя:</label><input asp-for="Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Фамилия:</label><input asp-for="Surname" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Отчество:</label><input asp-for="Patronymic" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="card mt-2">
+        <div class="card-body">
+            <h4 class="card-title">Паспортные данные</h4>
+            <div class="form-group">
+                <label>Код:</label><input asp-for="Code" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Кто выдал:</label><input asp-for="IssuingAuthority" class="form-control" />
+            </div>            
+        </div>
+    </div>
+    <div class="card mt-2">
+        <div class="card-body">
+            <h4 class="card-title">Опции</h4>
+            <div class="checkbox">
+                <label>
+                    <input asp-for="HavePassport" /> Сделать загран паспорт
+                </label>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="text-center">
+        <input class="btn btn-success btn-transparent rounded-pill" type="submit" value="Оформить заказ" />
+    </div>
+    <br />
+</form>
+

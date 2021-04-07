@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewBag.Title = "Обработанные заказы";
+    Layout = "_AdminLayout";
+}
+
+<div class="card mt-2">
+    <div class="card-body">
+        <h3 class="card-title">Обработанные заказы</h3>
+        @if (Model.Count() > 0)
+        {
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Дата</th>
+                <th>Имя</th>
+                <th>Код паспорта</th>
+                <th>Кто выдал</th>
+                <th>Загран паспорт</th>
+                <th colspan="2">Детали</th>
+            </tr>
+        </thead>
+        @foreach (Order o in Model)
+        {
+            <tr>
+                <th>@o.Date</th>
+                <th>@o.Name @o.Surname @o.Patronymic</th>
+                <th>@o.Code</th>
+                <th>@o.IssuingAuthority</th>
+                <th>
+                @if (o.HavePassport)
+                {
+                    <p>Есть</p> 
+                }
+                else
+                {
+                    <p>Нет</p>
+                }
+                </th>
+                <th>Тур</th>
+                <th>Количество</th>                               
+            </tr>
+            @foreach (CartLine line in o.Lines)
+            {
+                <tr>
+                    <td colspan="2"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a asp-action="Detail" asp-controller="Admin" class="btn btn-sm btn-info rounded-pill"
+                           asp-route-id="@line.Product.ID">
+                            @line.Product.Name
+                        </a>
+                    </td>
+                    <td>@line.Quantity</td>
+                </tr>
+            }
+        }
+    </table>
+        }
+        else
+        {
+            <div class="text-center">Нет отправленных заказов</div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,64 @@
+﻿@model BuenViaje.Models.ViewModels.TransportOwner.TransportOwnerEditViewModel
+@{
+    ViewBag.Title = "Edit Product";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid w-50">
+    <form asp-action="Edit" asp-controller="TransportOwner" method="post" enctype="multipart/form-data">
+        <div class="card mt-2">
+            <div class="card-body">
+                <div>
+                    <input type="hidden" asp-for="@Model.Owner.Id" />
+                    <h5 class="card-title">
+                        <label class="control-label">Добавить владельца лайнера</label>
+                    </h5>
+                    <input asp-for="Photo" type="file" name="Photo" class="form-control" />
+                    <div class="col-md-2">
+                        @if (!String.IsNullOrWhiteSpace(Model.Owner.ImageId))
+                        {
+                            <img src="@Url.Action("GetImage", new { id=@Model.Owner.ImageId })" class="card-img" alt="Товар" />
+                        }
+                        else
+                        {
+                            <img src="~/images/pets.png" class="card-img" alt="Товар" />
+                        }
+                    </div>
+                    <div class="form-group">
+                        <h5 class="card-title">
+                            <label class="control-label">Имя:</label>
+                        </h5>
+                        <div id="danger"><span asp-validation-for="@Model.Owner.Name"></span></div>
+                        <input asp-for="@Model.Owner.Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <h5 class="card-title">
+                            <label class="control-label">Фамилия: </label>
+                        </h5>
+                        <div id="danger"><span asp-validation-for="@Model.Owner.Surname"></span></div>
+                        <input asp-for="@Model.Owner.Surname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <h5 class="card-title">
+                            <label class="control-label">Отчество: </label>
+                        </h5>
+                        <div id="danger"><span asp-validation-for="@Model.Owner.Patronymic"></span></div>
+                        <input asp-for="@Model.Owner.Patronymic" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <h5 class="card-title">
+                            <label class="control-label">Телефон: </label>
+                        </h5>
+                        <div id="danger"><span asp-validation-for="@Model.Owner.Phone"></span></div>
+                        <input asp-for="@Model.Owner.Phone" class="form-control" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center" style="margin-top: 2%">
+            <button class="btn btn-success btn-transparent rounded-pill" type="submit">Сохранить</button>
+            <a asp-action="Show" asp-controller="TransportOwner" class="btn btn-secondary btn-transparent rounded-pill">Отмена</a>
+        </div>
+    </form>
+
+</div>

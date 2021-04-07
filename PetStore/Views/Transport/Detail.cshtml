@@ -1,0 +1,38 @@
+﻿@model BuenViaje.Models.Transport
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid w-50">
+    <div class="card mt-2">
+        <div class="card-body">
+            <div class="mx-auto img-fluid img-circle d-block" style="margin-bottom:1%">
+                @if (!String.IsNullOrWhiteSpace(Model.ImageId))
+                {
+                    <img class="mx-auto img-fluid img-circle d-block" src="@Url.Action("GetImage", new { id=@Model.ImageId })" alt="" />
+                }
+                else
+                {
+                    <img src="~/images/pets.png" class="mx-auto img-fluid img-circle d-block" alt="" />
+                }
+            </div>
+            <h5 class="card-title">
+                Имя:<i> @Html.DisplayFor(model => model.Name)</i>
+            </h5>
+
+            <h5 class="card-title">
+                Владелец:<a asp-action="Detail" asp-controller="TransportOwner" asp-route-id="@Model.TransportOwnerId">
+               <i> @Html.DisplayFor(model => model.TransportOwner.Name)  @Html.DisplayFor(model => model.TransportOwner.Surname)</i>
+                </a>
+            </h5>
+        </div>
+    </div>
+
+</div>
+<div class="text-center" style="margin-top: 2%">
+    <a asp-action="Edit" asp-controller="TransportOwner"
+       class="btn btn-warning btn-transparent rounded-pill"
+       asp-route-transportId="@Model.Id">
+        Отредактировать
+    </a>
+    <a asp-action="Show" asp-controller="Transport" class="btn btn-secondary btn-transparent rounded-pill" >Назад</a>
+</div>

@@ -1,0 +1,93 @@
+﻿@model BuenViaje.Models.ViewModels.TransportShowViewModel
+@{
+    ViewBag.Title = "All Transport";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid w-50">
+    <div class="card mt-2" id="listShow">
+        <div style="display:inline-block">
+            <div class="p-1 bg-light rounded rounded-pill shadow-sm" style="display:inline-block; float: right;">
+                <form asp-action="Show" asp-controller="Transport" method="post" class="form-inline">
+                    <div class="input-group">
+                        <input name="SearchName" asp-for="SearchName" class="form-control form-control border-0 bg-light rounded rounded-pill" type="search" placeholder="Поиск" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-link text-primary" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <h3 class="card-title">Весь транспорт</h3>
+        @if (Model.Transports.Count() > 0)
+        {
+            <table class="table table-bordered table-sm">
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Название</th>>
+                    <th class="text-center">Владелец</th>
+                    <th class="text-center">Действие</th>
+                </tr>
+                @foreach (var item in Model.Transports)
+                {
+                    <tr>
+                        <td class="text-center">@item.Id</td>
+                        <td class="text-center">@item.Name</td>
+                        <td class="text-center">
+                            <a asp-action="Detail" asp-controller="TransportOwner" asp-route-id="@item.TransportOwnerId">
+                                @item.TransportOwner.Name @item.TransportOwner.Surname
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <form asp-action="Delete" asp-controller="Transport" asp-route-transportId="@item.Id" method="post">
+
+                                <a asp-action="Edit" asp-controller="Transport"
+                                   class="btn btn-sm btn-warning"
+                                   asp-route-transportId="@item.Id">
+                                    Редактировать
+                                </a>
+
+                                <a asp-action="Detail" asp-controller="Transport"
+                                   class="btn btn-sm btn-info"
+                                   asp-route-id="@item.Id">
+                                    Посмотреть фото
+                                </a>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                <input type="hidden" name="ProductID" value="@item.Id" />
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    Удалить
+                                </button>
+                                }
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+    <ul class="pagination" style="margin-top: 2%;">
+        @for (int mypage = 1; mypage <= Model.PagingInfo.TotalPages; mypage++)
+        {
+            if (mypage == Model.PagingInfo.CurrentPage)
+            {
+                <li class="page-item active">
+                    <a asp-action="Show" asp-route-page="@mypage" class="page-link">
+                        @mypage
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a asp-action="Show" asp-route-page="@mypage" class="page-link">
+                        @mypage
+                    </a>
+                </li>
+            }
+        }
+    </ul>
+</div>
+<div class="text-center">
+    <a asp-action="Create" asp-controller="Transport" class="btn btn-primary btn-transparent rounded-pill">Добавить транспорт</a>
+</div>
+

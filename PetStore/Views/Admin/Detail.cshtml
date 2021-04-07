@@ -1,0 +1,74 @@
+﻿@model BuenViaje.Models.Voucher
+@{
+    Layout = "_AdminLayout";
+}
+    <div class="container-fluid w-50">
+        <div class="card mt-2">
+            <div class="card-body">
+                <div class="mx-auto img-fluid img-circle d-block" style="margin-bottom:1%">
+                    @if (!String.IsNullOrWhiteSpace(Model.Product.ImageId))
+                    {
+                        <img class="mx-auto img-fluid img-circle d-block" src="@Url.Action("GetImage", new { id=@Model.Product.ImageId })" alt="" />
+                    }
+                    else
+                    {
+                        <img src="~/images/pets.png" class="mx-auto img-fluid img-circle d-block" alt="" />
+                    }
+                </div>
+                <h5 class="card-title">
+                    Название:<i> @Model.Product.Name</i>
+                </h5>
+                <h5 class="card-title">
+                    Категория:<i>  @Model.Product.Categories.Name</i>
+                </h5>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <h5 class="card-title">
+                        Закупочная цена:<i>  @Model.Product.PriceBuy</i>
+                    </h5>
+                }
+                <h5 class="card-title">
+                    Цена:<i>   @Model.Product.PriceSell</i>
+                </h5>
+                <h5 class="card-title">
+                    Откуда:<i>   @Model.LocationFrom.Country, @Model.LocationFrom.Sity, @Model.LocationFrom.Departure</i>
+                </h5>
+                <h5 class="card-title">
+                    Куда:<i>
+                        @foreach (var item in Model.LocationVouchers)
+                        {
+                            @item.Location.Country<i>, </i>@item.Location.Sity<i>, </i>@item.Location.Departure
+                            <br />
+                        }
+                    </i>
+                </h5>
+                @if (User.IsInRole("Admin"))
+                {
+                    <h5 class="card-title">
+                        Статус:<i>  @Model.Status</i>
+                    </h5>
+                }
+                <h5 class="card-title">
+                    Лайнер:<i> @Model.Transport.Name </i>
+                </h5>
+                <h5 class="card-title">
+                    Дата отправления:<i> @Model.DateStart </i>
+                </h5>
+                <h5 class="card-title">
+                    Дата прибытия:<i> @Model.DateEnd </i>
+                </h5>
+                <h5 class="card-title">
+                    Описание:<i> @Html.DisplayFor(model => model.Product.Description) </i>
+                </h5>               
+            </div>
+        </div>
+        @*<div class="text-center" id="btnAdd" style="margin-bottom: -5%;margin-top: -5%;">
+            <a asp-action="Edit" asp-controller="Voucher"
+               class="btn btn-primary"
+               asp-route-transportOwnerId="@Model.Id" id="btnAdd">
+                Edit
+            </a>
+            <a asp-action="Show" asp-controller="Voucher" class="btn btn-secondary" id="btnAdd">Cancel</a>
+        </div>*@
+    </div>

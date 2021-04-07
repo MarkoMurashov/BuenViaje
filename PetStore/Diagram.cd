@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PetStore.Models.ApplicationDbContext">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQEAAAAAAAAAAggAAAIAAIAAEgAAEAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\Entity\ApplicationDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetStore.Models.EFOrderRepository" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Entity\EFOrderRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Orders" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PetStore.Models.EFProductRepository" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\Entity\EFProductRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Products" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="PetStore.Models.EFStockRepository" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAABAgAAAABAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\Entity\EFStockRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="StockItems" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BuenViaje.Models.Entity.EFCategories" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entity\EFCategories.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entity" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BuenViaje.Models.Entity.EFLocationVoucher" BaseTypeListCollapsed="true">
+    <Position X="14" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entity\EFLocationVoucher.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entity" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BuenViaje.Models.Entity.EFTransport" BaseTypeListCollapsed="true">
+    <Position X="16" Y="6" Width="1.5" />
+    <AssociationLine Name="_context" Type="PetStore.Models.ApplicationDbContext" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.5" Y="6" />
+        <Point X="17.5" Y="5.415" />
+        <Point X="16.958" Y="5.415" Type="JumpStart" />
+        <Point X="16.792" Y="5.415" Type="JumpEnd" />
+        <Point X="15.75" Y="5.415" />
+        <Point X="15.75" Y="2.811" />
+        <Point X="16.25" Y="2.811" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entity\EFTransport.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entity" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BuenViaje.Models.Entity.EFTransportOwner" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entity\EFTransportOwner.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entity" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BuenViaje.Models.Entity.EFVoucher" BaseTypeListCollapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAAAAAAAAABAAAAAAEAAAAAAAAAAAgQAAAAQAAAAA=</HashCode>
+      <FileName>Models\Entity\EFVoucher.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="VoucherLocation" />
+      <Property Name="Entity" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BonVoyage.Models.Entity.EFLocation" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entity\EFLocation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_context" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Entity" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PetStore.Models.AppIdentityDbContext">
+    <Position X="3" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Identity\AppIdentityDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetStore.Models.ApplicationUser">
+    <Position X="5.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Identity\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetStore.Models.Order">
+    <Position X="21" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAADAAACAAAAgQAAAgAAQABAAAAAADAAAAAAAAACA=</HashCode>
+      <FileName>Models\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetStore.Models.Product" Collapsed="true">
+    <Position X="13.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAggAAAAACAAAQIAAAAEBEAAAAAAACAAAA=</HashCode>
+      <FileName>Models\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PetStore.Models.Stock" Collapsed="true">
+    <Position X="19" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\Stock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuenViaje.Models.Categories">
+    <Position X="20.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Categories.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuenViaje.Models.Location">
+    <Position X="22.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAACAAAAAgAAAAAAAIAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuenViaje.Models.LocationVoucher">
+    <Position X="17.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAYAAAAAAAAgAAAAAIAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\LocationVoucher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuenViaje.Models.Transport" Collapsed="true">
+    <Position X="14" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAAAAIQAAAAAABEAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Transport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuenViaje.Models.TransportOwner">
+    <Position X="21.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAQABAAAABEAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\TransportOwner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuenViaje.Models.Voucher" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FACCCAAEAAAQgAAAAAABAAQAAAAAAAgAgAAAAAAAACA=</HashCode>
+      <FileName>Models\Voucher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.IdentityUser">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext&lt;TUser&gt;">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PetStore.Controllers.AdminController">
+    <Position X="21" Y="19.5" Width="1.5" />
+    <AssociationLine Name="_dbCategories" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.153" Y="4.018" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_dbTransport" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.139" Y="2.218" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_dbLocation" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.376" Y="2.346" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABBAAAAAAAAIAAAQACUCIlACAAEAACAACAA=</HashCode>
+      <FileName>Controllers\AdminController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_dbLocation" />
+      <Property Name="_dbTransport" />
+      <Property Name="_dbCategories" />
+      <Property Name="_dbVoucher" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PetStore.Controllers.ProductController">
+    <Position X="16" Y="22.25" Width="1.5" />
+    <AssociationLine Name="_dbCategories" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-4.856" Y="0.067" Height="0.182" Width="1.335" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_dbLocation" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-4.634" Y="-0.412" Height="0.182" Width="1.563" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_dbTransport" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-3.155" Y="-0.776" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAABBAAAAAAAAIAAAQACACAgAAAAAAECAAAAI=</HashCode>
+      <FileName>Controllers\ProductController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_dbCategories" />
+      <Property Name="_dbLocation" />
+      <Property Name="_dbTransport" />
+      <Property Name="_dbVoucher" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BuenViaje.Controllers.CategoriesController">
+    <Position X="18.75" Y="15.75" Width="1.5" />
+    <AssociationLine Name="_dbCategories" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.582" Y="-1.483" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACUEAEACAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\CategoriesController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_dbCategories" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BuenViaje.Controllers.LocationController">
+    <Position X="14.75" Y="15.75" Width="1.5" />
+    <AssociationLine Name="_dbLocation" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="1.689" Y="-2.105" Height="0.182" Width="1.763" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAUEAEACAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\LocationController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_dbLocation" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BuenViaje.Controllers.TransportController">
+    <Position X="13.75" Y="20" Width="1.5" />
+    <AssociationLine Name="_dbTransportOwners" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.662" Y="1.132" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_dbTransport" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.25" Y="21.859" />
+        <Point X="15.625" Y="21.859" />
+        <Point X="15.625" Y="19.062" />
+        <Point X="16" Y="19.062" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.512" Y="-0.69" Height="0.182" Width="1.542" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAIAAAQAAUEAkADAAAAAAAACAA=</HashCode>
+      <FileName>Controllers\TransportController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_dbTransportOwners" />
+      <Property Name="_dbTransport" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BuenViaje.Controllers.TransportOwnerController">
+    <Position X="18.5" Y="20.5" Width="1.5" />
+    <AssociationLine Name="_dbOwners" Type="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="2.161" Y="-1.348" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAQAAUUAEACAAAAAAAACAA=</HashCode>
+      <FileName>Controllers\TransportOwnerController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_dbOwners" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="BuenViaje.Models.Interfaces.IEFContext&lt;T&gt;" Collapsed="true">
+    <Position X="16" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\Interface\IEFContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="BuenViaje.Models.Interfaces.IVoucher" Collapsed="true">
+    <Position X="16" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Interface\IVoucher.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

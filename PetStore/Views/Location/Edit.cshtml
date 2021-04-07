@@ -1,0 +1,42 @@
+﻿@model BuenViaje.Models.Location
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    <div class="container-fluid w-50">
+        <form asp-action="Edit" asp-controller="Location" method="post">
+            <div class="card mt-2">
+                <div class="card-body">
+                    <h2 class="card-title">
+                        Добавить категорию
+                    </h2>
+                    <input type="hidden" asp-for="@Model.Id" />
+                    <div class="form-group">
+                        <h5 class="card-title">
+                            Страна
+                        </h5>
+                        <div id="danger"><span asp-validation-for="@Model.Country"></span></div>
+                        <input asp-for="@Model.Country" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <h5 class="card-title">
+                            Город
+                        </h5>
+                        <div id="danger"><span asp-validation-for="@Model.Sity"></span></div>
+                        <input asp-for="@Model.Sity" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <h5 class="card-title">
+                            Порт
+                        </h5>
+                        <div id="danger"><span asp-validation-for="@Model.Departure"></span></div>
+                        <input asp-for="@Model.Departure" class="form-control" />
+                    </div>                   
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 2%">
+                <button class="btn btn-success btn-transparent rounded-pill" type="submit">Сохранить</button>
+                <a asp-action="Show" asp-controller="Location" class="btn btn-secondary btn-transparent rounded-pill">Отмена</a>
+            </div>
+        </form>
+    </div>

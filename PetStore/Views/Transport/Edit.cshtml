@@ -1,0 +1,51 @@
+﻿@model BuenViaje.Models.ViewModels.TransportEditViewModel
+@{
+    ViewBag.Title = "Edit Product";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid w-50">
+        <div class="container" style="margin-top: 3%">
+            <form asp-action="Edit" asp-controller="Transport" method="post" enctype="multipart/form-data">
+                <div class="card mt-2">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <label class="control-label">Добавить лайнер</label>
+                        </h5>
+                        <input type="hidden" asp-for="@Model.Transports.Id" />
+                        <input asp-for="Photo" type="file" name="Photo" class="form-control" />
+                        <div class="col-md-2">
+                            @if (!String.IsNullOrWhiteSpace(Model.Transports.ImageId))
+                            {
+                                <img src="@Url.Action("GetImage", new { id=@Model.Transports.ImageId })" class="card-img" alt="Товар" />
+                            }
+                            else
+                            {
+                                <img src="~/images/pets.png" class="card-img" alt="Товар" />
+                            }
+                        </div>
+                        <div class="form-group">
+                            <h5 class="card-title">
+                                <label class="control-label">Название:</label>
+                            </h5>
+                            <div id="danger"><span asp-validation-for="@Model.Transports.Name"></span></div>
+                            <input asp-for="@Model.Transports.Name" class="form-control" />
+                        </div>
+                        <h5 class="card-title">
+                            <label class="control-label">Владелец:</label>
+                        </h5>
+                        <div id="danger"><span asp-validation-for="@Model.FIOOwner"></span></div>
+                        <select asp-for="@Model.FIOOwner" multiple class="form-control" id="exampleFormControlSelect2">
+                            @foreach (var item in Model.TransportOwners)
+                            {
+                                <option>@item.Id @item.Name @item.Surname</option>
+                            }
+                        </select>
+                    </div>
+                    </div>
+                    <div class="text-center" style="margin-top: 2%">
+                        <button class="btn btn-success btn-transparent rounded-pill" type="submit">Сохранить</button>
+                        <a asp-action="Show" asp-controller="Transport" class="btn btn-secondary btn-transparent rounded-pill">Отмена</a>
+                    </div>
+            </form>
+        </div>
+</div>

@@ -1,0 +1,181 @@
+﻿@model BuenViaje.Models.ViewModels.Voucher.VoucherEditViewModel
+@{
+    ViewBag.Title = "Редактировать товар";
+    Layout = "_AdminLayout";
+}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" >
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" ></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script type="text/javascript" src="~/js/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="~/css/bootstrap-multiselect.css" type="text/css" />
+
+
+<div class="container-fluid w-50">
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <div class="card mt-2">
+            <div class="card-body">
+
+                <h3 class="card-title">
+                    Тур
+                </h3>
+                <input type="hidden" asp-for="Voucher.ID" />
+                <input type="hidden" asp-for="Product.ID" />
+                <input type="hidden" asp-for="Product.ImageId" />
+                @if (!String.IsNullOrWhiteSpace(Model.Product.ImageId))
+                {
+                    <img src="@Url.Action("GetImage", new { id=@Model.Product.ImageId })" class="rounded" height="200" alt="Товар" />
+                }
+                else
+                {
+                    <img src="~/images/pets.png" class="rounded" height="200" alt="Товар" />
+                }
+                <div class="form-group">
+                    <h5 class="card-title">
+                        <label>Название тура</label>
+                    </h5>
+                    <div><span asp-validation-for="Product.Name" class="text-danger"></span></div>
+                    <input asp-for="Product.Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title">
+                        Категория
+                    </h5>
+                    <div id="danger"><span asp-validation-for="@Model.CategoriesInfo"></span></div>
+                    <select asp-for="@Model.CategoriesInfo" class="custom-select-lg" id="cat">
+                        @foreach (var item in Model.Categories)
+                        {
+                            @if (Model.Product.CategoriesID == item.Id)
+                            {
+                                <option selected="selected">@item.Id @item.Name</option>
+                            }
+                            else
+                            {
+                                <option>@item.Id @item.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title">
+                        <label>Откуда</label>
+                    </h5>
+                    <div id="danger"><span asp-validation-for="@Model.LocationFROMInfo"></span></div>
+                    <select asp-for="@Model.LocationFROMInfo" class="custom-select-lg">
+                        @foreach (var item in Model.LocationsFROM)
+                        {
+                            @if (Model.Voucher.LocationFromId == item.Id)
+                            {
+                                <option selected="selected">@item.Id @item.Country @item.Sity @item.Departure</option>
+                            }
+                            else
+                            {
+                                <option>@item.Id @item.Country @item.Sity @item.Departure</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title">
+                        <label>Куда</label>
+                    </h5>
+                    <div id="danger"><span asp-validation-for="@Model.LocationTOInfo"></span></div>
+                    <select style="display: none;" asp-for="@Model.LocationTOInfo" multiple="multiple" class="form-control" id="example-getting-started">
+                        @foreach (var item in Model.LocationsTO)
+                        {
+                            <option>@item.Id @item.Country @item.Sity </option>
+                        }
+                    </select>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#example-getting-started').multiselect();
+                        });
+                    </script>
+                    <br />
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title">
+                        <label>Лайнер</label>
+                    </h5>
+                    <div id="danger"><span asp-validation-for="@Model.TransportInfo"></span></div>
+
+                    <select asp-for="@Model.TransportInfo" class="custom-select-lg">
+                        @foreach (var item in Model.Transports)
+                        {
+                            @if (Model.Voucher.TranspotId == item.Id)
+                            {
+                                <option selected="selected">@item.Id "@item.Name</option>
+                            }
+                            else
+                            {
+                                <option>@item.Id "@item.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title">
+                        <label asp-for="Product.PriceBuy">Закупочная цена</label>
+                    </h5>
+                    <div><span asp-validation-for="Product.PriceBuy" class="text-danger"></span></div>
+                    <input asp-for="Product.PriceBuy" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title">
+                        <label asp-for="Product.PriceSell">Розничная цена</label>
+                    </h5>
+                    <div><span asp-validation-for="Product.PriceSell" class="text-danger"></span></div>
+                    <input asp-for="Product.PriceSell" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title">
+                        <label asp-for="Product.PriceSell">Время отправления</label>
+                    </h5>
+                    <div id="danger"><span asp-validation-for="@Model.Voucher.DateStart"></span></div>
+                    <input type="datetime-local" asp-for="@Model.Voucher.DateStart" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title">
+                        Время прибытия
+                    </h5>
+                    <div id="danger"><span asp-validation-for="@Model.Voucher.DateEnd"></span></div>
+                    <input type="datetime-local" asp-for="@Model.Voucher.DateEnd" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title">
+                        Статус
+                    </h5>
+                    <select asp-for="@Model.Status" class="custom-select-lg">
+                        <option>Ordinary</option>
+                        <option>Hot</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <h5 class="card-title"><label asp-for="Product.Description">Описание</label></h5>
+                    <div><span asp-validation-for="Product.Description" class="text-danger"></span></div>
+                    <textarea asp-for="Product.Description" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <h5 class="card-title">
+                        <label asp-for="Photo" class="control-label">Загрузить изображение</label>
+                    </h5>
+                    <input asp-for="Photo" type="file" name="Photo" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="text-center">
+            <button class="btn btn-success btn-transparent rounded-pill" type="submit">Сохранить</button>
+            <a asp-action="Index" asp-controller="Admin" class="btn btn-secondary btn-transparent rounded-pill">Отмена</a>
+        </div>
+        <br />
+    </form>
+</div>

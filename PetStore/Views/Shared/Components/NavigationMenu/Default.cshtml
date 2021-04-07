@@ -1,0 +1,85 @@
+﻿@model PetStore.Filters.FilterParameters.FilterParametersProducts
+@{
+    var cat = TempData["SelectedCategory"]!= null ?TempData["SelectedCategory"] as string:String.Empty;
+    var cou = TempData["SelectedCountry"] != null ?TempData["SelectedCountry"] as string:String.Empty;
+    var max = TempData["MaxPrice"] != null? (decimal)TempData["MaxPrice"]: 0;
+    var min = TempData["MinPrice"] != null? (decimal)TempData["MinPrice"]: 0;
+    var date1 = TempData["MinDate"] != null? (DateTime)TempData["MinDate"] : DateTime.MinValue;
+    var date2 = TempData["MaxDate"] != null? (DateTime)TempData["MaxDate"]: DateTime.MinValue;
+    var hot = TempData["Hot"] != null ? (bool)TempData["Hot"] : false;
+}
+<div class="card text-center mt-2">
+    <div class="card-body">
+        <h5 class="card-title">Категории</h5>
+        <a class="btn btn-block btn-light rounded-pill"
+           asp-action="List"
+           asp-controller="Product"
+           asp-route-category="">
+            Все туры
+        </a>
+        <a class="btn btn-block btn-warning rounded-pill"
+           asp-action="List"
+           asp-controller="Product"
+           asp-route-IsHot="@true"
+           asp-route-category="">
+            Горящие туры
+        </a>
+        @foreach (string category in Model.Categories)
+        {
+            <a class="btn btn-block rounded-pill
+                @(category == cat ? "btn-primary": "btn-light")"
+               asp-action="List"
+               asp-controller="Product"
+               asp-route-categories="@category"
+               asp-route-productPage="1">
+                @category
+            </a>
+        }
+    </div>
+</div>
+<div class="card text-center mt-2">
+    <div class="card-body">
+        <h5 class="card-title">Фильтр</h5>
+        <form asp-action="List" asp-controller="Product" method="post">
+            <h6>Страны</h6>
+            @foreach (string country in Model.Countries)
+            {
+                <div class="form-check" style="display:inline-block;">
+                    @if (cou.Contains(country))
+                    {
+                        <input name="countries" class="form-check-input" type="checkbox" value="@country" checked>
+                    }
+                    else
+                    {
+                        <input name="countries" class="form-check-input" type="checkbox" value="@country">
+                    }
+                    <label class="form-check-label" for="defaultCheck">
+                        @country
+                    </label>
+                </div>
+            }
+
+            <br />
+            <h6>Цена</h6>
+            <div class="form-row">
+                <div class="col">
+                    <input name="minPrice" type="number" min="0" placeholder="Мин" value="@min" class="form-control">
+                </div>
+                <div class="col">
+                    <input name="maxPrice" type="number" min="0" placeholder="Макс" value="@max" class="form-control">
+                </div>
+            </div>
+            <h6>Дата</h6>
+            <div class="form-row">
+                <div class="col">
+                    <input type="date" name="MinDate" placeholder="От" asp-for="@date1" />
+                </div>
+                <div class="col">
+                    <input type="date" name="MaxDate" placeholder="До" asp-for="@date2" />
+                </div>
+            </div>
+            <br />
+            <button class="btn btn-light rounded-pill" type="submit">Найти</button>
+        </form>
+    </div>
+</div>
